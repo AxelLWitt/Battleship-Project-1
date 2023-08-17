@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script defer src="main.js"></script>
+  <title>Battleship</title>
+  <link href="main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div>
+        <h3></h3>
+
+        <div id="container">
+
+            <div id="game-controls">
+                <button id="player1-set">Finish Placement</button>
+                <button id="player2-set">Finish Placement</button>
+            </div>
+            
+            <div id='game-board-container'>
+                <div id='player-1-grid' class='grid'></div>
+                <div id='player-2-grid' class='grid'></div>
+            </div>
+            
+            <div id='shipyard-container'>
+                <div id='player-1-shipyard' class='shipyard'>
+                    <div id='p1-battleship' class='battleship ship1' draggable=true length="5"><img href='cruiser.png'></div>
+                    <div id='p1-destroyer' class='destroyer ship1' draggable=true length="4"></div>
+                    <div id='p1-submarine1' class='submarine ship1' draggable=true length="3"></div>
+                    <div id='p1-submarine2' class='submarine ship1' draggable=true length="3"></div>
+                    <div id='p1-tugboat' class='tugboat ship1' draggable=true length="2"></div>
+                </div>
+                
+                <div id='player-2-shipyard' class='shipyard'>
+                    <div id='p2-battleship'class='battleship ship' draggable=true length="5"></div>
+                    <div id='p2-destroyer' class='destroyer ship' draggable=true length="4"></div>
+                    <div id='p2-submarine1' class='submarine ship' draggable=true length="3"></div>
+                <div id='p2-submarine2' class='submarine ship' draggable=true length="3"></div>
+                <div id='p2-tugboat' class='tugboat ship' draggable=true length="2"></div>
+            </div>
+        </div>
+
+        <div id='game-select-modal'>
+            <button id='vs-comp' class='select-mode modal'>Play Game</button>
+            <button id='vs-player' class='select-mode'>Two Player</button>
+        </div>
+        
+        <div id="play-again-modal" class="modal">
+            <button id='go-agane' class='select-mode'>Play Again?</button>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+html {
+  margin: 0;
+}
+
+body {
+  background-image: url(ship-background.gif);
+  background-size: cover;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+}
+
+#flavor-town {
+  color: aquamarine;
+}
+
+#game-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#container {
+  max-width: 880px;
+  min-width: 880px;
+  margin: 0 auto;
+}
+
+#player1-set,
+#player2-set {
+  visibility: hidden;
+}
+
+.select-mode {
+  display: flex;
+  margin: 10px auto;
+  padding: 10px;
+  visibility: visible;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
+  width: 400px;
+}
+
+.shipyard {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.battleship {
+  width: 95%;
+  background-image: url(cruiser.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.destroyer {
+  width: 75%;
+  background-image: url(carrier.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.submarine {
+  width: 70%;
+  background-image: url(submarine.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.tugboat {
+  width: 50%;
+  background-image: url(floater.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#go-agane {
+  visibility: hidden;
+}
+
+#game-board-container {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  justify-content: space-between;
+  visibility: hidden;
+}
+
+#shipyard-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  visibility: hidden;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.battleship,
+.destroyer,
+.submarine,
+.tugboat {
+  height: 40px;
+  margin: 5px auto;
+}
+
+.cell {
+  border: solid 1px black;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.cell:hover {
+  background-color: darkgrey;
+}
+
+.hovered-tile {
+  background-color: green;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#game-select-modal {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  margin: 0 auto;
+  border: 5px solid black;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+#game-select-modal {
+  position: fixed; /* or absolute depending on your needs */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  z-index: 100; /* to ensure the modal is on top */
+}
