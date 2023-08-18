@@ -16,4 +16,4 @@ HTML5
 
 #Where to Play
 
-Click [here](url=https://main--transcendent-dusk-9e85a7.netlify.app) to play.
+Click '[here]''(url=https://main--transcendent-dusk-9e85a7.netlify.app)' to play.
