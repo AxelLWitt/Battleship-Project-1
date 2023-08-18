@@ -29,3 +29,4 @@ Click [here](https://transcendent-dusk-9e85a7.netlify.app) to play.
 * Implementing random ship placements.
 * Implementing an single player mode with AI integration.
 * Showing the ship imaged within the tiles hit.
+* Adding sound
