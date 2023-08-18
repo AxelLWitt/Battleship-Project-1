@@ -10,9 +10,9 @@
 7. Take turns aiming at pieces.
 
 ## Technologies Used
-*Javascript
-*CSS
-*HTML5
+* Javascript
+* CSS
+* HTML5
 
 ## Where to Play
 
@@ -26,6 +26,6 @@ Click [here](https://main--transcendent-dusk-9e85a7.netlify.app](https://main--t
 * I honestly dont know. I think I removed quite a few and polished it pretty well... Please let me know if you find some.
 
 ## Ice box
-*Implementing random ship placements
-*Implementing an single player mode with AI integration.
-*Showing the ship imaged within the tiles hit
+* Implementing random ship placements
+* Implementing an single player mode with AI integration.
+* Showing the ship imaged within the tiles hit
