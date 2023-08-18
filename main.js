@@ -113,7 +113,7 @@ function dragDrop(e) {
         ammendTo = "player-1-";
       }
       let cell = document.getElementById(`${ammendTo}r${row + i}c${col}`);
-      cell.style.backgroundColor = "blue";
+      cell.style.backgroundColor = 'yellow';
       appendToGrid(cell, targetBoard);
     }
   } else {
@@ -135,7 +135,7 @@ function dragDrop(e) {
         ammendTo = "player-1-";
       }
       let cell = document.getElementById(`${ammendTo}r${row}c${col + i}`);
-      cell.style.backgroundColor = "blue";
+      cell.style.backgroundColor = "yellow";
       appendToGrid(cell, targetBoard);
     }
   }
@@ -299,9 +299,9 @@ function checkHit(e) {
   const col = parseInt(match[2]);
   if (player[row][col] === 1) {
     player[row][col] *= -1;
-    cell.style.backgroundColor = "green";
+    cell.classList.add('class', 'hit');
   } else {
-    cell.style.backgroundColor = "red";
+    cell.classList.add('class', 'miss');
   }
   cell.classList.add("clicked");
   turn *= -1;
@@ -396,12 +396,20 @@ function renderMessages(x){
         turnEl.innerHTML = 'This tile has already been selected!'
         setTimeout(()=>{
             turnEl.innerHTML = 'Please select another tile!'
-        }, 1500)
+        }, 1000)
     }else if(x==='opponent'){
         turnEl.innerHTML = 'Please select an opposing tile!'
     }else if(x===1){
         turnEl.innerHTML = 'Player 1\'s turn!'
+        setTimeout(()=>{
+            turnEl.innerHTML = 'Player 1\'s turn!'
+        },500)
     }else if(x===-1){
         turnEl.innerHTML = 'Player 2\'s turn!'
+        setTimeout(()=>{
+            turnEl.innerHTML = 'Player 1\'s turn!'
+        },500)
+    }else if(x==='hit'){
+        turnEl.innerHTML = 'A Ship Was Hit!'
     }
 }

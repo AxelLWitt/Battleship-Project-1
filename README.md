@@ -16,16 +16,16 @@
 
 ## Where to Play
 
-Click [here](https://main--transcendent-dusk-9e85a7.netlify.app](https://main--transcendent-dusk-9e85a7.netlify.app)https://main--transcendent-dusk-9e85a7.netlify.app) to play.
+Click [here](https://transcendent-dusk-9e85a7.netlify.app) to play.
 
 ## Screenshots
 ![Gamescreen](gamescreen.png)
 ![Ship Placing](shipplacement.png)
 
 ## Bugs
-* I honestly dont know. I think I removed quite a few and polished it pretty well... Please let me know if you find some.
+* To the best of my knowledge, I am unaware of any remaining bugs outside of manipulating the game through console commands. If you happen to find some in a live and un-manipulated state, please let me know.
 
 ## Ice box
-* Implementing random ship placements
+* Implementing random ship placements.
 * Implementing an single player mode with AI integration.
-* Showing the ship imaged within the tiles hit
+* Showing the ship imaged within the tiles hit.

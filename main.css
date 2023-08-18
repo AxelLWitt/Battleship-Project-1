@@ -160,6 +160,17 @@ padding:10px;
   z-index: 100;
 }
 
+.miss{
+    background-image:url(splash.png);
+    background-size:contain;
+}
+
+.hit{
+    background-color: rgb(244,43,23);
+    background-image: url(nuclear-explosion.png), radial-gradient(circle, rgba(244,43,23,1) 0%, rgba(255,147,0,1) 43%, rgba(255,255,255,0.2847514005602241) 76%);
+    background-size:contain;
+}
+
 #play-again-modal{
     position: fixed;
     display: none;
