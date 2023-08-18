@@ -16,7 +16,7 @@
 
 ## Where to Play
 
-Click [here](https://transcendent-dusk-9e85a7.netlify.app) to play.
+Click [here](https://battleship-cursed.netlify.app) to play.
 
 ## Screenshots
 ![Gamescreen](gamescreen.png)
