@@ -1,5 +1,6 @@
 html {
-  margin: 0;
+  margin: -50px;
+  zoom:80%;
 }
 
 body {
@@ -20,23 +21,29 @@ h3 {
 #game-controls {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  margin:0 0 10px 0;
 }
 
 #container {
-  max-width: 880px;
+  max-width: 400px;
+  width:100%;
   min-width: 880px;
   margin: 0 auto;
 }
 
 #player1-set,
 #player2-set {
+padding:10px;
   visibility: hidden;
+  background:none;
+  border:1px solid black;
 }
 
 .select-mode {
   display: flex;
   margin: 10px auto;
+  background:none;
+  border:1px solid black;
   padding: 10px;
   visibility: visible;
 }
@@ -60,28 +67,28 @@ h3 {
 }
 
 .battleship {
-  width: 95%;
+  width: 75%;
   background-image: url(cruiser.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .destroyer {
-  width: 75%;
+  width: 65%;
   background-image: url(carrier.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .submarine {
-  width: 70%;
+  width: 50%;
   background-image: url(submarine.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .tugboat {
-  width: 50%;
+  width: 30%;
   background-image: url(floater.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -135,30 +142,38 @@ h3 {
   visibility: hidden;
 }
 
-#game-select-modal {
-  position: relative;
-  width: 200px;
-  height: 400px;
-  margin: 0 auto;
-  border: 5px solid black;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  background-color: aliceblue;
-}
-
-#game-select-modal {
-  position: fixed; /* or absolute depending on your needs */
+#game-select-modal{
+  position: fixed;
+  display: flex;
+  flex-direction:column;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
-  height: 400px;
+  height: 200px;
   margin: 0 auto;
   border: 1px solid black;
   border-radius: 5px;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
   background-color: aliceblue;
-  z-index: 100; /* to ensure the modal is on top */
+  z-index: 100;
+}
+
+#play-again-modal{
+    position: fixed;
+    display: none;
+    flex-direction:column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    justify-content:center;
+    align-items: center;
+    background-color: aliceblue;
+    z-index: 100;
 }

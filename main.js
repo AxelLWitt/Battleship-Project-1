@@ -2,6 +2,7 @@
 const gameSelectModal = document.getElementById("game-select-modal");
 const lossScreenModal = document.getElementById("play-again-modal");
 const singlePlayerBtn = document.getElementById("vs-comp");
+const turnEl = document.getElementById('turn-display')
 const gameBoardEl = document.getElementById("game-board-container");
 const playerBoardEl = document.getElementById("player-1-grid");
 const player2BoardEl = document.getElementById("player-2-grid");
@@ -13,6 +14,7 @@ const player2Ship = [...player2ShipsEl.querySelectorAll(".ship")];
 const finishPlacement = document.getElementById("player1-set");
 const startGame = document.getElementById("player2-set");
 const weGoAgane = document.getElementById("go-agane");
+const bodyEl = document.querySelector('body')
 
 //variable for basic functionings
 let player1ships;
@@ -63,7 +65,6 @@ function rotateShip() {
     player2ShipsEl.style.transform === "rotate(-90deg)"
       ? "rotate(0deg)"
       : "rotate(-90deg)";
-  console.log(player1ShipsEl.style.transform);
 }
 
 let currentShip;
@@ -96,13 +97,12 @@ function dragDrop(e) {
   let shipLength = parseInt(currentShip.getAttribute("length"));
   if (vertical) {
     if (row + shipLength - 1 >= 10) {
-      alert("Invalid position");
+        renderMessages('drop')
       return;
     }
     for (let i = 0; i < shipLength; i++) {
       if (grid[row + i][col] === 1) {
-        alert("Invalid Placement");
-        return;
+        renderMessages('drop')
       }
     }
     for (let i = 0; i < shipLength; i++) {
@@ -118,12 +118,12 @@ function dragDrop(e) {
     }
   } else {
     if (col + shipLength - 1 >= 10) {
-      alert("Invalid position");
+      renderMessages('drop')
       return;
     }
     for (let i = 0; i < shipLength; i++) {
       if (grid[row][col + i] === 1) {
-        alert("Invalid Placement");
+        renderMessages('drop')
         return;
       }
     }
@@ -144,8 +144,11 @@ function dragDrop(e) {
 
 //initalize function
 function init() {
+    bodyEl.style.backgroundImage = 'url(ship-background.gif)'
   finishPlacement.style.visibility = "visible";
+  lossScreenModal.style.display = 'none';
   winner = false;
+  renderMessages('init')
   hideModal();
   renderPlayer1Grid();
   generateGrid();
@@ -162,8 +165,7 @@ function renderPlayer1Grid() {
 function renderPlayer2Grid() {
   let allShipsPlaced = placements(player1Ship);
   if (!allShipsPlaced) {
-    alert("Please Place All Ships!!!");
-    return;
+    renderMessages('placement')
   } else {
     turn *= -1;
     playerBoardEl.style.visibility = "hidden";
@@ -180,7 +182,7 @@ function renderPlayer2Grid() {
 function hideTiles() {
   let allShipsPlaced = placements(player2Ship);
   if (!allShipsPlaced) {
-    alert("Please Place All Ships!!!");
+    renderMessages('placement');
     return;
   } else {
     playerBoardEl.style.visibility = "visible";
@@ -191,6 +193,7 @@ function hideTiles() {
     tiles2.forEach((x) => (x.style.backgroundColor = ""));
     startGame.style.visibility = "hidden";
     turn *= -1;
+    renderMessages(turn)
   }
 }
 
@@ -201,11 +204,6 @@ function placements(player) {
     }
   }
   return true;
-}
-
-function turnCalc() {
-  turn *= -1;
-  renderGameState();
 }
 
 function generateGrid() {
@@ -267,13 +265,15 @@ function lifeCounter() {
 
 function checkForWin(p1Lives, p2Lives) {
   if (p1Lives === -17) {
+    renderMessages('player2')
     weGoAgane.style.visibility = "visible";
     winner = true;
-    return "p2 wins";
+    return;
   } else if (p2Lives === -17) {
+    renderMessages('player1')
     weGoAgane.style.visibility = "visible";
     winner = true;
-    return "p1 wins";
+    return;
   }
 }
 
@@ -283,14 +283,14 @@ function checkHit(e) {
   }
   const cell = e.target;
   if (turn === 1 && cell.classList.contains("p1")) {
-    alert("Please Select an Opposing Tile.");
+    renderMessages("opponent");
     return;
   } else if (turn === -1 && cell.classList.contains("p2")) {
-    alert("Please Select an Opposing Tile.");
+    renderMessages("opponent");
     return;
   }
   if (cell.classList.contains("clicked")) {
-    alert("Cell has Already Been Selected. Please choose another!");
+    renderMessages("selected");
     return;
   }
   let player = turn === 1 ? player2Grid : player1Grid;
@@ -305,7 +305,7 @@ function checkHit(e) {
   }
   cell.classList.add("clicked");
   turn *= -1;
-//   renderPlayerTurn();
+  renderMessages(turn)
   lifeCounter();
 }
 
@@ -323,36 +323,85 @@ function clearGrid() {
   init();
 }
 
-function showWinner() {
-  if (winner) {
-    
-  }
-}
-
 function hideModal() {
   gameSelectModal.style.display = "none";
 }
 
-function randoNum() {
-  return Math.floor(Math.random() * 10);
+//ai integration & random board placements
+// function randoNum(x) {
+//   return Math.floor(Math.random() * (x));
+// }
+
+// function randomizePlacement(){
+//     let amountOfVert = randoNum(player2Ship.length)
+//     let remaining = player2Ship.length - amountOfVert
+//     for(let i=0;i<amountOfVert;i++){
+//         let currShip = parseInt(player2Ship[i].getAttribute('length'))
+//         let randomShipRow = randoNum(currShip)
+//         let randomShipCol = randoNum(10)
+//         // let random
+//         let placeable = checkForCollision(randomShipRow, randomShipCol, currShip)
+//         if(placeable){
+//             let cell = `player-2-r${randomShipRow}c${randomShipCol}`
+//             appendToGrid(cell, 'player2')
+//         }else{
+//             i--
+//         }
+//     }
+// }
+
+// function checkForCollision(col, row, size){
+//     for(let i=0;i<size;i++){
+//         if(player2Grid[row+i][col]===1||row===9||col===9){
+//             return false
+//         }
+//     }
+//     return true;
+// }
+
+function renderMessages(x){
+    if(x==='drop'){
+        turnEl.innerHTML = "Please place your Ship within the alloted tiles!";
+            setTimeout(()=>{
+                turnEl.innerHTML = 'Please finish placing your ships.'
+            },2500);
+        return;
+    }else if(x==='placement'){
+        turnEl.innerHTML = 'Please place all your ships before progressing.'
+        setTimeout(()=>{
+            turnEl.innerHTML = 'Please finish placing your tiles.'
+        },2500);
+        return;
+    }else if(x==='player2'){
+        bodyEl.style.backgroundImage = 'url(game-over-bg.gif)'
+        turnEl.innerHTML = 'Game Over! Player 2 Wins!'
+        setTimeout(()=>{
+            bodyEl.style.backgroundImage = 'url(static-nuke.jpg)'
+        },9000)
+        setTimeout(()=>{
+            lossScreenModal.style.display = 'flex'
+        },10000)
+    }else if(x==='player1'){
+        bodyEl.style.backgroundImage = 'url(game-over-bg.gif)'
+        turnEl.innerHTML = 'Game Over! Player 1 Wins!'
+        setTimeout(()=>{
+            bodyEl.style.backgroundImage = 'url(static-nuke.jpg)'
+        },9000)
+        setTimeout(()=>{
+            lossScreenModal.style.display = 'flex'
+        },10000)
+    }else if(x==='init'){
+        turnEl.innerHTML = 'Please place your pieces!'
+    }else if(x==='selected'){
+        turnEl.innerHTML = 'This tile has already been selected!'
+        setTimeout(()=>{
+            turnEl.innerHTML = 'Please select another tile!'
+        }, 1500)
+    }else if(x==='opponent'){
+        turnEl.innerHTML = 'Please select an opposing tile!'
+    }else if(x===1){
+        turnEl.innerHTML = 'Player 1\'s turn!'
+    }else if(x===-1){
+        turnEl.innerHTML = 'Player 2\'s turn!'
+    }
 }
-
-// function summonRaidBoss(){
-//     let row = randoNum()
-//     let col = randoNum()
-//     console.log(row, col)
-//     if(!raidBossTiles.includes([row, col])){
-//         raidBossTiles.push([row, col])
-//         raidBossHitDetection(row, col)
-//     }else{
-//         summonRaidBoss();
-//     }
-// }
-
-// function raidBossHitDetection(row, column){
-//     if(player1[row][column]===1){
-
-//         cell.style.backgroundColor = 'green';
-//     }
-//     turn*=-1;
-// }
