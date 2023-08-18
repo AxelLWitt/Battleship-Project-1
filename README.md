@@ -1,6 +1,6 @@
-## Battleship
+# Battleship
 
-# How to play
+## How to play
 Select Game Mode(Currently Limited to two player mode)
 To place pieces, drag the desired piece to the desired tile. The tile you hover over with the crusor will be the placement tile for the whole ship.
 When all pieces are placed, press the proceed button located above the game board.
@@ -9,11 +9,13 @@ Repeat the process above.
 When all pieces are set, press the proceed button above the game board.
 Take turns aiming at pieces.
 
-#Technologies Used
-Javascript
-CSS
-HTML5
+## Technologies Used
+*Javascript
+*CSS
+*HTML5
 
-#Where to Play
+## Where to Play
 
-Click '[here]''(url=https://main--transcendent-dusk-9e85a7.netlify.app)' to play.
+Click [here](https://main--transcendent-dusk-9e85a7.netlify.app](https://main--transcendent-dusk-9e85a7.netlify.app)https://main--transcendent-dusk-9e85a7.netlify.app) to play.
+
+## Screenshots
