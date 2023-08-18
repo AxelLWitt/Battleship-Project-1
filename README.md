@@ -1,5 +1,8 @@
 # Battleship
 
+## Rules
+The point of the game is to deduce where the enemy ships are and attempt to sink them as fast as possible. The ships are placed manually by the player, either in vertical or horizontal orientation, after which starts the game. Race to find the enemy ships and keep yours afloat. Kermit.
+
 ## How to play
 1. Select Game Mode(Currently Limited to two player mode)
 2. To place pieces, drag the desired piece to the desired tile. The tile you hover over with the crusor will be the placement tile for the whole ship. To change the orientation of the pieces, double click the ships.
