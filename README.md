@@ -21,4 +21,4 @@ ________________________________________________________________________________
 Where to Play
 ____________________________________________________________________________________________________________________
 
-Click <a url=https://main--transcendent-dusk-9e85a7.netlify.app>here</a> to play.
+Click <a url='https://main--transcendent-dusk-9e85a7.netlify.app'>here</a> to play.
