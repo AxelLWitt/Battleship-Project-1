@@ -103,6 +103,7 @@ function dragDrop(e) {
     for (let i = 0; i < shipLength; i++) {
       if (grid[row + i][col] === 1) {
         renderMessages('drop')
+        return;
       }
     }
     for (let i = 0; i < shipLength; i++) {
@@ -407,7 +408,7 @@ function renderMessages(x){
     }else if(x===-1){
         turnEl.innerHTML = 'Player 2\'s turn!'
         setTimeout(()=>{
-            turnEl.innerHTML = 'Player 1\'s turn!'
+            turnEl.innerHTML = 'Player 2\'s turn!'
         },500)
     }else if(x==='hit'){
         turnEl.innerHTML = 'A Ship Was Hit!'
